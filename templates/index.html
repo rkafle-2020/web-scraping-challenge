@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Explore Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Explore Mars</h1>
+      <p>Scrape latest Mars images and news</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Mars News</a></p>
+    </div>
+  <div class = "container text-center">
+    <h2>Latest Mars News</h2>
+    <h3>{{ mars_facts.Headline }}</h3>
+    <p>{{mars_facts.News}}</p>
+  </div>
+  <div class = "container">
+    <div class = "row">
+      <div class = 'col-md-6'>
+        <h3>Featured Mars Image</h3>
+        <img src="{{mars_facts['Featured_Image']}}" class= 'img-responsive' style= 'max-width:100%; height:auto;' alt="Latest Image from Mars">
+      </div>
+    <div class = "row">
+      <div class = 'col-md-6'>
+        <h3>Interesting Facts about Mars</h3>
+        <table class = 'table' >
+          {{mars_facts.Table | safe}}
+        </table>
+      </div>
+    </div>
+  </div>
+<hr>
+  <div class="container text-center">
+    <h1 class="jumbotron">Hemispheres of Mars</h1>
+  </div>
+  <div class="gallery">
+    <div class = 'col-md-6' style="padding: 25px;">
+        <h3>{{ mars_facts.Hemisphere_Images[0].title }}</h3>
+        <img src="{{ mars_facts.Hemisphere_Images[0].img_url}}" class= 'img-responsive' style= 'max-width:75%; height:auto;' alt="Cerberus_Hemisphere">
+    </div>
+    <div class = 'col-md-6' style="padding: 25px;">
+        <h3>{{ mars_facts.Hemisphere_Images[1].title }}</h3>
+        <img src="{{ mars_facts.Hemisphere_Images[1].img_url}}" class= 'img-responsive' style= 'max-width:75%; height:auto;' alt="Schiaparelli_Hemisphere">
+    </div>
+
+<hr>
+<div class="container-fluid">
+  <div class="gallery">
+    <div class = 'col-md-6' style="padding: 25px;" >
+        <h3>{{ mars_facts.Hemisphere_Images[2].title }}</h3>
+        <img src="{{ mars_facts.Hemisphere_Images[2].img_url}}" class= 'img-responsive' style= 'max-width:75%; height:auto;' alt="Syrtis_Hemisphere">
+    </div>
+    <div class = 'col-md-6' style="padding: 25px;">
+        <h3>{{ mars_facts.Hemisphere_Images[3].title }}</h3>
+        <img src="{{ mars_facts.Hemisphere_Images[3].img_url}}" class= 'img-responsive' style='max-width:75%; height:auto;'  alt="Valles_Hemisphere"> 
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
